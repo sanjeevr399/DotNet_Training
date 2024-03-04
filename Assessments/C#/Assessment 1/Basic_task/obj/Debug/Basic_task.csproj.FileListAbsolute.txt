@@ -1,0 +1,14 @@
+D:\Basic_task\Basic_task\bin\Debug\Basic_task.exe.config
+D:\Basic_task\Basic_task\bin\Debug\Basic_task.exe
+D:\Basic_task\Basic_task\bin\Debug\Basic_task.pdb
+D:\Basic_task\Basic_task\obj\Debug\Basic_task.csproj.AssemblyReference.cache
+D:\Basic_task\Basic_task\obj\Debug\Basic_task.csproj.CoreCompileInputs.cache
+D:\Basic_task\Basic_task\obj\Debug\Basic_task.exe
+D:\Basic_task\Basic_task\obj\Debug\Basic_task.pdb
+D:\Assignments\Basic_task\Basic_task\bin\Debug\Basic_task.exe.config
+D:\Assignments\Basic_task\Basic_task\bin\Debug\Basic_task.exe
+D:\Assignments\Basic_task\Basic_task\bin\Debug\Basic_task.pdb
+D:\Assignments\Basic_task\Basic_task\obj\Debug\Basic_task.csproj.AssemblyReference.cache
+D:\Assignments\Basic_task\Basic_task\obj\Debug\Basic_task.csproj.CoreCompileInputs.cache
+D:\Assignments\Basic_task\Basic_task\obj\Debug\Basic_task.exe
+D:\Assignments\Basic_task\Basic_task\obj\Debug\Basic_task.pdb
