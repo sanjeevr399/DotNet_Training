@@ -1,0 +1,7 @@
+D:\training_dotnet\Assignments\C#\Assignment 3\Assignment 3\Assignment 3\bin\Debug\Assignment 3.exe.config
+D:\training_dotnet\Assignments\C#\Assignment 3\Assignment 3\Assignment 3\bin\Debug\Assignment 3.exe
+D:\training_dotnet\Assignments\C#\Assignment 3\Assignment 3\Assignment 3\bin\Debug\Assignment 3.pdb
+D:\training_dotnet\Assignments\C#\Assignment 3\Assignment 3\Assignment 3\obj\Debug\Assignment 3.csproj.AssemblyReference.cache
+D:\training_dotnet\Assignments\C#\Assignment 3\Assignment 3\Assignment 3\obj\Debug\Assignment 3.csproj.CoreCompileInputs.cache
+D:\training_dotnet\Assignments\C#\Assignment 3\Assignment 3\Assignment 3\obj\Debug\Assignment 3.exe
+D:\training_dotnet\Assignments\C#\Assignment 3\Assignment 3\Assignment 3\obj\Debug\Assignment 3.pdb
