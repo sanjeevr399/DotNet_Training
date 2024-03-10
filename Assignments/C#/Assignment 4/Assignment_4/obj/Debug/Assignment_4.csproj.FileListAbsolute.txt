@@ -1,0 +1,10 @@
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\bin\Debug\Assignment_4.exe.config
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\bin\Debug\Assignment_4.exe
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\bin\Debug\Assignment_4.pdb
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\bin\Debug\Concession_app.dll
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\bin\Debug\Concession_app.pdb
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\obj\Debug\Assignment_4.csproj.AssemblyReference.cache
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\obj\Debug\Assignment_4.csproj.CoreCompileInputs.cache
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\obj\Debug\Assignment_4.csproj.CopyComplete
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\obj\Debug\Assignment_4.exe
+D:\training_dotnet\Assignments\C#\Assignment 4\Assignment_4\obj\Debug\Assignment_4.pdb

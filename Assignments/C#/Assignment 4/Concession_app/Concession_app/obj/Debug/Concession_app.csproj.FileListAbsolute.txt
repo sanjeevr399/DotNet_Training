@@ -1,0 +1,6 @@
+D:\training_dotnet\Assignments\C#\Assignment 4\Concession_app\Concession_app\bin\Debug\Concession_app.dll
+D:\training_dotnet\Assignments\C#\Assignment 4\Concession_app\Concession_app\bin\Debug\Concession_app.pdb
+D:\training_dotnet\Assignments\C#\Assignment 4\Concession_app\Concession_app\obj\Debug\Concession_app.csproj.AssemblyReference.cache
+D:\training_dotnet\Assignments\C#\Assignment 4\Concession_app\Concession_app\obj\Debug\Concession_app.csproj.CoreCompileInputs.cache
+D:\training_dotnet\Assignments\C#\Assignment 4\Concession_app\Concession_app\obj\Debug\Concession_app.dll
+D:\training_dotnet\Assignments\C#\Assignment 4\Concession_app\Concession_app\obj\Debug\Concession_app.pdb
