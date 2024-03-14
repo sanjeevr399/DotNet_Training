@@ -23,9 +23,9 @@ namespace Assessment_3
                 using (StreamWriter fileStream = File.CreateText(fileName))
                 {
                     // Writing initial content to the file
-                    fileStream.WriteLine("Hello and Welcome");
-                    fileStream.WriteLine("It is the first content");
-                    fileStream.WriteLine("of the text file mytest.txt");
+                    fileStream.WriteLine("Hello there");
+                    fileStream.WriteLine("My name is sanjeev Ranjan");
+                    fileStream.WriteLine("I'm working in infinite computer solution");
                 }
 
                 using (StreamWriter sw = new StreamWriter(fileName, true))
