@@ -1,22 +1,6 @@
 create database Assignment_2
 use Assignment_2;
 
--- create department table
-create table DEPT (
-    DeptNo int primary key,
-    Dname varchar(50),
-    Loc varchar(40)
-);
-
--- insert data into department table
-insert into DEPT (DeptNo, Dname, Loc)
-values
-    (10, 'ACCOUNTING', 'NEW YORK'),
-    (20, 'RESEARCH', 'DALLAS'),
-    (30, 'SALES', 'CHICAGO'),
-    (40, 'OPERATIONS', 'BOSTON');
-select* from DEPT
-
 --CREATE EMP TABLE
 CREATE TABLE EMP (
     Empno int PRIMARY KEY,
@@ -29,9 +13,7 @@ CREATE TABLE EMP (
     DeptNo int 
 );
 
---adding constraints with alter , add constraints
-alter table EMP
-add constraint fk_DeptNo foreign key(DeptNo) references DEPT(DeptNo)
+alter table EMP add constraint fk_DeptNo foreign key(DeptNo) references DEPT(DeptNo)
 
 
 -- insert data into employee table
@@ -52,7 +34,23 @@ values
     (7902, 'FORD', 'ANALYST', 7566, '1981-12-03', 3000, NULL, 20),
     (7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300, NULL, 10);
 
-select*from EMP
+select*from EMP;
+
+-- create department table
+create table DEPT (
+    DeptNo int primary key,
+    Dname varchar(50),
+    Loc varchar(40)
+);
+
+-- insert data into department table
+insert into DEPT (DeptNo, Dname, Loc)
+values
+    (10, 'ACCOUNTING', 'NEW YORK'),
+    (20, 'RESEARCH', 'DALLAS'),
+    (30, 'SALES', 'CHICAGO'),
+    (40, 'OPERATIONS', 'BOSTON');
+select* from DEPT;
 
 -- ALL QUERIES
 
@@ -66,16 +64,10 @@ select * from EMP where Mgr_id is null;
 select Ename,Empno,Sal from EMP where Sal between 1200 and 1400;
 
 --4. Give all the employees in the RESEARCH department a 10% pay rise. Verify that this has been done by listing all their details before and after the rise. 
-
---first we will search for department of research
 select DeptNo from DEPT where Dname='Research';
---then we will search for all the  employee from reseach dept 
 select*from EMP where DeptNo = 20;
-
---lets update for those employee
 update EMP set SAL = SAL * 1.1 where DEPTNO = 20;
-
---verifying after the rise
+--verifying
 select*from EMP where DeptNo = 20;
 
 --5. Find the number of CLERKS employed. Give it a descriptive heading. 
