@@ -63,28 +63,41 @@ holiday_name varchar(20)
 --Insert holiday details
 Insert into Holiday(holiday_date, holiday_name)
 values
-	('2024-03-24', 'Holi'),
+	('2024-03-26', 'Holi'),
 	('2024-08-16', 'Rakshabandhan'),
 	('2024-10-15', 'Diwali'),
 	('2025-01-01', 'New year')
 
 select * from Holiday
 
+create table Emp (
+   -- Id int primary key,
+	id int,
+    Name varchar(20),
+);
+
+select*from Emp
+
 --Trigger
-create or alter trigger pre_holiday_manipulation
-on holiday
+create or alter trigger prevent_dml_operation
+on emp
 after insert, update, delete
 as
 begin
-    declare @holiday_message varchar(40);
-    declare @error_message varchar(50); 
+    declare @existsHoliday int;
+    set @existsHoliday = (select count(*) from holiday where holiday_date = convert(date, getdate()));
     
-    if exists (select 1 from holiday where holiday_date in (select holiday_date from inserted)) begin
-        select @holiday_message = holiday_name from holiday where holiday_date in (select holiday_date from inserted);
-        select @error_message = 'Due to ' + @holiday_message + ' you cannot manipulate data';
-        rollback;
-        raiserror(@error_message, 16, 1);
-    end;
-end;
+    if @existsHoliday > 0
+    begin
+        declare @createErrorMessage varchar(50);
+        declare @getHoliday varchar(30);
+        select @getHoliday = holiday_name from holiday where holiday_date = convert(date, getdate());
+        set @createErrorMessage = 'Due to ' + @getHoliday + ', you can not manipulate the data.';
+        raiserror(@createErrorMessage, 16, 1);
+		return
+    end
+end
 
-update Holiday set holiday_name = 'Diwali' where holiday_date='2024-10-15';
+ 
+
+ insert into Emp values(5,'sanjeev');
