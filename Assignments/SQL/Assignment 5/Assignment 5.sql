@@ -26,8 +26,8 @@ begin
     declare @NetSal int
 
     --Calculation of given 'HRA,DA,PF and IT
-    set @HRA = 0.10 * @Sal;
-    set @DA = 0.20 * @Sal;
+    set @HRA = 0.1 * @Sal;
+    set @DA = 0.2 * @Sal;
     set @PF = 0.08 * @Sal;
     set @IT = 0.05 * @Sal;
     -- Calculating deduct,gross_sal,net_sal
@@ -37,14 +37,14 @@ begin
 
 	
     select 
-		@Sal as [Emp_sal],
-		@HRA as [HRA],
-		@DA as [DA],
-		@PF as [PF],
-		@IT as [IT],
-		@Deduct as [Deduct],
-		@GrossSal as [Gross_Sal],
-		@NetSal as [Net_Sal];
+		@Sal as Emp_sal,
+		@HRA as HRA,
+		@DA as DA,
+		@PF as PF,
+		@IT as IT,
+		@Deduct as Deduct,
+		@GrossSal as Gross_Sal,
+		@NetSal as Net_Sal;
 end
 
 Cal_Payslip 7839,30000;
