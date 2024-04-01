@@ -45,9 +45,9 @@ namespace Assignment_1
 
            // 1.Display a list of all the employee who have joined before 1 / 1 / 2015
             Console.WriteLine("1.Employees who joined before 1/1/2015:");
-            var Before2015 = Emp.AsEnumerable().Where(row => row.Field<DateTime>("DOJ") < new DateTime(2015, 1, 1));
+            var Join_before2015 = Emp.AsEnumerable().Where(r => r.Field<DateTime>("DOJ") < new DateTime(2015, 1, 1));
 
-            foreach (var employee in Before2015)
+            foreach (var employee in Join_before2015)
             {
                 Console.WriteLine($"{employee["EmpID"]} - {employee["F_Name"]} {employee["L_Name"]}({employee["CITY"]})");
             }
@@ -57,19 +57,19 @@ namespace Assignment_1
 
             //2.Display a list of all the employee whose date of birth is after 1 / 1 / 1990.
             Console.WriteLine("\n 2. List of all the employee whose date of birth is after 1 / 1 / 1990 :  ");
-            var After_DOB = Emp.AsEnumerable().Where(row => row.Field<DateTime>("DOB") < new DateTime(1990, 1, 1));
-            foreach (var employee in After_DOB)
+            var Af_DOB = Emp.AsEnumerable().Where(row => row.Field<DateTime>("DOB") < new DateTime(1990, 1, 1));
+            foreach (var employee in Af_DOB)
             {
-                Console.WriteLine($"{employee["F_Name"]} {employee["L_Name"]} ");
+                Console.WriteLine($"{employee["F_Name"]}");
             }
 
             //*************************************************************************************************************************************
 
             //3.Display a list of all the employee whose designation is Consultant and Associate.
             Console.WriteLine("\n 3. List of all employees whose designation is Consultant and Associate:  ");
-            var Designation = Emp.AsEnumerable().Where(row => row.Field<string>("Title") == "Associate" || row.Field<string>("Title") == "Consultant");
+            var Desig = Emp.AsEnumerable().Where(r => r.Field<string>("Title") == "Associate" || r.Field<string>("Title") == "Consultant");
 
-            foreach (var employee in Designation)
+            foreach (var employee in Desig)
             {
                 Console.WriteLine($"{employee["F_Name"]} {employee["L_Name"]}");
             }
@@ -84,50 +84,52 @@ namespace Assignment_1
 
             //5.Display total number of employees belonging to “Chennai”
 
-            int TotalNoChennai = Emp.AsEnumerable().Count(row => row.Field<string>("City") == "Chennai");
-            Console.WriteLine($"\n5.Total number of employees belonging to Chennai : {TotalNoChennai}");
+            int Total_Chennai = Emp.AsEnumerable().Count(r => r.Field<string>("City") == "Chennai");
+            Console.WriteLine($"\n5.Total number of employees belonging to Chennai : {Total_Chennai}");
 
             //***************************************************************************************************************************************
 
             //6.Display highest employee id from the list
 
 
-            int maxID = Emp.AsEnumerable().Max(row => row.Field<int>("EmpId"));
+            int maxID = Emp.AsEnumerable().Max(r => r.Field<int>("EmpId"));
             Console.WriteLine($"\n6.Highest Emp Id : {maxID}");
 
             //***************************************************************************************************************************************
 
             //7.Display total number of employee who have joined after 1 / 1 / 2015.
-            int After2015 = Emp.AsEnumerable().Count(row => row.Field<DateTime>("DOJ") < new DateTime(2015, 1, 1));
-            Console.WriteLine($"\n7.Total number of joined after 1/1/2015 : {After2015}");
+            int Af2015 = Emp.AsEnumerable().Count(r => r.Field<DateTime>("DOJ") < new DateTime(2015, 1, 1));
+            Console.WriteLine($"\n7.Total number of joined after 1/1/2015 : {Af2015}");
 
             //****************************************************************************************************************************************
 
             //8.Display total number of employee whose designation is not “Associate”.
 
-            int NotAssociate = Emp.AsEnumerable().Count(row => row.Field<string>("Title") != "Associate");
-            Console.WriteLine($"\n8.Total number of employees designation not Associate : {NotAssociate}");
+            int NotAsso = Emp.AsEnumerable().Count(r => r.Field<string>("Title") != "Associate");
+            Console.WriteLine($"\n8.Total number of employees designation not Associate : {NotAsso}");
 
             //****************************************************************************************************************************************
 
             //9. Display total number of employee based on City.
-            var EmployeeCity = Emp.AsEnumerable().GroupBy(row => row.Field<string>("City"));
+
+            var cityCounts = Emp.AsEnumerable()
+                         .GroupBy(r => r.Field<string>("City"))
+                         .Select(group => new { City = group.Key, Count = group.Count() });
+
             Console.WriteLine("\n9. Total number of employees based on City:");
-            foreach (var cityGroup in EmployeeCity)
+            foreach (var cityCount in cityCounts)
             {
-                string city = cityGroup.Key;  //group.key refers to the key of each group,
-                int count = cityGroup.Count();
-                Console.WriteLine($"{city}: {count}");
+                Console.WriteLine($"{cityCount.City}: {cityCount.Count}");
             }
 
             //****************************************************************************************************************************************
 
             // 10. Display total number of employees based on city and title.
-            var EmpWithTitleCounts = Emp.AsEnumerable().GroupBy(row => new { City = row.Field<string>("City"), Title = row.Field<string>("Title") })
+            var Emp_Counts = Emp.AsEnumerable().GroupBy(r => new { City = r.Field<string>("City"), Title = r.Field<string>("Title") })
                                           .Select(group => $"{group.Key.City} - {group.Key.Title}: {group.Count()}");
 
             Console.WriteLine("\n10.Total number of employees based on city and title");
-            foreach (var count in EmpWithTitleCounts)
+            foreach (var count in Emp_Counts)
             {
                 Console.WriteLine(count);
             }
@@ -135,16 +137,13 @@ namespace Assignment_1
             //****************************************************************************************************************************************
 
             // 11. Display total number of employee who is youngest in the list
-            var GetDOB = Emp.AsEnumerable().Min(row => row.Field<DateTime>("DOB"));
-            var YoungEmployee = Emp.AsEnumerable().Where(row => row.Field<DateTime>("DOB") == GetDOB); //count of emp
 
-            int TotCount = Emp.AsEnumerable().Count(row => row.Field<DateTime>("DOB") == GetDOB);// emp
 
-            Console.WriteLine($"\n11. Total number of employees who are youngest in the list: {TotCount}");
-            foreach (var employee in YoungEmployee)
-            {
-                Console.WriteLine($"{employee["F_Name"]} {employee["L_Name"]}");
-            }
+                    int TotalCount = Emp.AsEnumerable()
+                   .Where(row => row.Field<DateTime>("DOB") == Emp.AsEnumerable().Min(r => r.Field<DateTime>("DOB")))
+                   .Count();
+
+            Console.WriteLine($"\n11. Total number of employees who are youngest in the list: {TotalCount}");
 
             Console.WriteLine("*********************************************************************************");
 
