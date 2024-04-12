@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace ADO_Assesment
 {
@@ -59,8 +60,8 @@ namespace ADO_Assesment
 
             try
             {
-                Console.Write("Enter employee no: ");
-                Empno = Convert.ToInt32(Console.ReadLine());
+                //Console.Write("Enter employee no: ");
+                //Empno = Convert.ToInt32(Console.ReadLine());
 
                 Console.Write("Enter employee Name: ");
                 EmpName = Console.ReadLine();
@@ -74,15 +75,16 @@ namespace ADO_Assesment
 
 
                 // Add Rows
-                cmd = new SqlCommand("inserted into Employee_Details values(@Eno,@Ename,@Esal,@Etype)", con);
+                cmd = new SqlCommand("AddEmployee", con);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Eno", Empno);
-                cmd.Parameters.AddWithValue("@Ename", EmpName);
-                cmd.Parameters.AddWithValue("@Esal", Emp_sal);
-                cmd.Parameters.AddWithValue("@Etype", Emptype);
+                //cmd.Parameters.AddWithValue("@Eno", Empno);
+                cmd.Parameters.AddWithValue("@EmpName", EmpName);
+                cmd.Parameters.AddWithValue("@Emp_sal", Emp_sal);
+                cmd.Parameters.AddWithValue("@Emptype", Emptype);
 
-                    con.Open();
-                    cmd.ExecuteNonQuery();
+                con.Open();
+                cmd.ExecuteNonQuery();
                     //Console.Read();
 
                     Console.WriteLine("\nEmployee added successfully!");
